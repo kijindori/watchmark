@@ -1,0 +1,36 @@
+{
+  "name": "watchmark",
+  "description": "찜한 OTT 콘텐츠를 한 곳에서 관리할 수 있습니다.",
+  "version": "1.1.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type":"module"
+  },
+  "host_permissions": ["*://www.youtube.com/*", "*://watcha.com/*", "*://www.netflix.com/*"],
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "/images/btn.png"
+    }
+  },
+  "icons":{
+    "128": "/images/btn.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.netflix.com/*","*://www.youtube.com/*","*://watcha.com/*"],
+      "js": ["contentscripts/common.js"]
+    }
+  ],
+  "minimum_chrome_version": "116",
+  "web_accessible_resources": [{ 
+    "resources": ["/images/plus-sign.png","/images/plus-sign2.png","/images/check.png","/images/checkmark.png"],
+    "matches": ["<all_urls>"]
+  }]
+}
