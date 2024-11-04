@@ -1,6 +1,6 @@
 
 export class YoutubeClient{
-  // Request server for youtube video data  
+  // 서버에 유튜브 데이터 요청
   // @GET param: { id } 
   // return  res : {... , Array<Object> items}
   constructor() {
